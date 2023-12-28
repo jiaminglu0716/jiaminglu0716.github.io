@@ -1,0 +1,1166 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/cover-banner.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="rgba(25,25,25,0.5)">
+  <meta name="author" content="mvlg">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Mvlg&#39;s Blog">
+<meta property="og:url" content="https://jiaminglu0716.github.io/index.html">
+<meta property="og:site_name" content="Mvlg&#39;s Blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="mvlg">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <meta name="referrer" content="no-referrer" />
+  <title>Mvlg&#39;s Blog</title>
+
+  <!-- css函数库引入 -->
+<link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jiaminglu0716.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <!-- import cdn js -->
+  
+<script src="https://cdn.staticfile.org/vue/2.7.0/vue.min.js"></script>
+
+  
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+  <!-- import internal js -->
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  <script  src="/js/api.js" ></script>
+  <script  src="/js/data.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<!-- fluid通用布局模板(影响每个应用的页面)-->
+<body>
+  
+
+  <!-- 隐藏层头部，位于真实头部下方 -->
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MVLG</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/record/">
+                <i class="iconfont icon-books"></i>
+                <span>Record</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/gamer/">
+                <i class="iconfont icon-books"></i>
+                <span>Gamer</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Navigation</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>Links</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/shoplinks/">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>ShopLinks</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/acglinks/">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>ACG</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/cover-9.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Welcome to mvlg&#39;s blog"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <!-- 博客内容层外框 -->
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <!-- 博客内容层内框 -->
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<!-- 文章选项列表-博客主页 -->
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/10000/01/01/pin/Pin_Updated_Blog/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【Pin】Announcemation">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/10000/01/01/pin/Pin_Updated_Blog/" target="_self">
+          【Pin】Announcemation
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/10000/01/01/pin/Pin_Updated_Blog/" target="_self">
+        <div>
+          Updated 11-27             Functionquery some game information via the nav item of gamer.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="10000-01-01 01:01" pubdate>
+              10000-01-01
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/12/28/history/History_Game_Galgame/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/12/28/history/History_Game_Galgame/" target="_self">
+          
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/12/28/history/History_Game_Galgame/" target="_self">
+        <div>
+          Owned Release Date Game Price(JP) Company Company Type Platform Times Grand Total Time Play Speed Total Rate CG Rate BGM Rate Story Rate Creative Rate BUG Rate New Story Finished Date Recommandatio
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-28 23:10" pubdate>
+              2023-12-28
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/12/28/course/Course_20231027_PSV_How%20to%20DL%20and%20use%20apps/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【教程】PSV - 使用文档">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/12/28/course/Course_20231027_PSV_How%20to%20DL%20and%20use%20apps/" target="_self">
+          【教程】PSV - 使用文档
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/12/28/course/Course_20231027_PSV_How%20to%20DL%20and%20use%20apps/" target="_self">
+        <div>
+          前言这里将为您介绍如何使用各种合理有效的工具对PSV的应用进行下载与安装。 方法列表   No. Method device    1 黑商店 (整合下载) PS Vita   2 NPS (整合下载) Computer   3 TSV文件 (pkg格式不含解码) Computer   4 mai版本游戏 (跑跑、翼风、老玩家.etc) Computer   5 VPK【PSV安装包格式】(跑跑、
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-28 23:10" pubdate>
+              2023-12-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Gamer/" class="category-chain-item">Gamer</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Gamer/Portable/" class="category-chain-item">Portable</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Gamer/Portable/PSV/" class="category-chain-item">PSV</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+            
+              <a href="/tags/psv/">#psv</a>
+            
+              <a href="/tags/%E6%8E%8C%E6%9C%BA/">#掌机</a>
+            
+              <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>
+            
+              <a href="/tags/%E4%B8%8B%E8%BD%BD/">#下载</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/12/28/course/Course_20231027_Hexo_Quick%20Start/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【教程】Hexo - Quick Start">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/12/28/course/Course_20231027_Hexo_Quick%20Start/" target="_self">
+          【教程】Hexo - Quick Start
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/12/28/course/Course_20231027_Hexo_Quick%20Start/" target="_self">
+        <div>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-28 23:10" pubdate>
+              2023-12-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Course/" class="category-chain-item">Course</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Course/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+            
+              <a href="/tags/hexo/">#hexo</a>
+            
+              <a href="/tags/course/">#course</a>
+            
+              <a href="/tags/%E5%AE%98%E6%96%B9/">#官方</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/11/08/strategy/Strategy_20231108_Game_PC_Shiny%20Days/" target="_self">
+          <img src="/images/galgame/Shiny%20Days/cg-5.jpg" srcset="/img/loading.gif" lazyload alt="【攻略】Shiny Days">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/11/08/strategy/Strategy_20231108_Game_PC_Shiny%20Days/" target="_self">
+          【攻略】Shiny Days
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/11/08/strategy/Strategy_20231108_Game_PC_Shiny%20Days/" target="_self">
+        <div>
+          前言食用方法 每个攻略的正确性都不是100%，因此需要相互结合来解决问题。 本作的100%文本除非很闲，否则默认忽略，诚也攻略也是如此。 只要全节点和CG收集完毕即可。  游戏BUG 好感度事件节点回溯时候好感度累加BUG。 有时候可能是好感度累加导致超出对应结局的限制范畴，从而导致无法进线等系列问题。  攻略图萌娘树形选项图 诚也人物线路图 CG缺漏判断（英文版本） 局部线路参考 参考文案萌娘百
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-08 07:33" pubdate>
+              2023-11-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Gamer/" class="category-chain-item">Gamer</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Gamer/Strategy/" class="category-chain-item">Strategy</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Gamer/Strategy/PC/" class="category-chain-item">PC</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/game/">#game</a>
+            
+              <a href="/tags/strategy/">#strategy</a>
+            
+              <a href="/tags/%E6%94%BB%E7%95%A5/">#攻略</a>
+            
+              <a href="/tags/adv/">#adv</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/10/30/test/Test_20231030_Mermaid_Graph/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【测试】Mermaid Graph">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/10/30/test/Test_20231030_Mermaid_Graph/" target="_self">
+          【测试】Mermaid Graph
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/10/30/test/Test_20231030_Mermaid_Graph/" target="_self">
+        <div>
+          Mermaid中文文档 gantt dateFormat  YYYY-MM-DD title Adding GANTT diagram to mermaid  section A section Completed task            :done,    des1, 2014-01-06,2014-01-08 Active task               :active,  de
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-30 17:27" pubdate>
+              2023-10-30
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/10/30/strategy/Strategy_20231030_Game_PC_School%20Days%20HQ/" target="_self">
+          <img src="https://wallpapercave.com/dwp1x/Ge5HcBh.jpg" srcset="/img/loading.gif" lazyload alt="【攻略】School Days HQ">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/10/30/strategy/Strategy_20231030_Game_PC_School%20Days%20HQ/" target="_self">
+          【攻略】School Days HQ
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/10/30/strategy/Strategy_20231030_Game_PC_School%20Days%20HQ/" target="_self">
+        <div>
+          转载: https://akamemukan.hatenablog.com/entry/2015/12/14/225108路线: http://sagaoz.net/foolmaker/game/s/schooldayshq.html  ～はじめに～ １.新作School Days HQの攻略の際、公式ページの修正プログラムを適用した ２.旧作School Daysは当ブログの攻略情報とスクールデ
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-30 07:33" pubdate>
+              2023-10-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Gamer/" class="category-chain-item">Gamer</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Gamer/Strategy/" class="category-chain-item">Strategy</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Gamer/Strategy/PC/" class="category-chain-item">PC</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/game/">#game</a>
+            
+              <a href="/tags/strategy/">#strategy</a>
+            
+              <a href="/tags/%E6%94%BB%E7%95%A5/">#攻略</a>
+            
+              <a href="/tags/adv/">#adv</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/10/29/course/Course_20231029_VScode_Shortcuts/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【教程】VScode - Shortcuts">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/10/29/course/Course_20231029_VScode_Shortcuts/" target="_self">
+          【教程】VScode - Shortcuts
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/10/29/course/Course_20231029_VScode_Shortcuts/" target="_self">
+        <div>
+          vscode快捷键列表
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-29 18:10" pubdate>
+              2023-10-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Course/" class="category-chain-item">Course</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Course/Vscode/" class="category-chain-item">Vscode</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+            
+              <a href="/tags/course/">#course</a>
+            
+              <a href="/tags/vscode/">#vscode</a>
+            
+              <a href="/tags/shortcut/">#shortcut</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/10/29/course/Course_20231205_Window_Icon_Link/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【教程】Window - Icon link">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/10/29/course/Course_20231205_Window_Icon_Link/" target="_self">
+          【教程】Window - Icon link
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/10/29/course/Course_20231205_Window_Icon_Link/" target="_self">
+        <div>
+          vscode快捷键列表
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-29 18:10" pubdate>
+              2023-10-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Course/" class="category-chain-item">Course</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Course/Vscode/" class="category-chain-item">Vscode</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+            
+              <a href="/tags/course/">#course</a>
+            
+              <a href="/tags/window/">#window</a>
+            
+              <a href="/tags/icon/">#icon</a>
+            
+              <a href="/tags/link/">#link</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <!-- 博客列表项 -->
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/10/28/course/Course_20231028_Hexo_Create%20new%20page/" target="_self">
+          <img src="/img/cover-2.png" srcset="/img/loading.gif" lazyload alt="【教程】Hexo - Create new page">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/10/28/course/Course_20231028_Hexo_Create%20new%20page/" target="_self">
+          【教程】Hexo - Create new page
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/10/28/course/Course_20231028_Hexo_Create%20new%20page/" target="_self">
+        <div>
+          创建页面方式 基于模板(scaffolds)创建 -&gt; 使用者1hexo new &lt;layout&gt; &lt;title&gt; 基于主题路由创建 -&gt; 主题开发者  主题页面创建解析这里以fluid为例子 模板创建(fluid -&gt; layout): 局部组件于_partials，全局页面于 layout目录下。 模板对外路由(fluid -&gt; scripts
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-28 21:56" pubdate>
+              2023-10-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Course/" class="category-chain-item">Course</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Course/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+            
+              <a href="/tags/hexo/">#hexo</a>
+            
+              <a href="/tags/course/">#course</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content" style="opacity: 0.83;">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result" style="opacity: 1;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>mvlg</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Views: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Visitors: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
