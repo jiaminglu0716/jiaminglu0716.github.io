@@ -678,7 +678,7 @@ models.EventGroupManager = function() {
   }
   this.groupConcat = function(name, childs) {
     let group = this.exists(name) ? this.query(name) : this.create(name);
-    console.log(name, childs, group)
+    // console.log(name, childs, group)
     for (let child of childs) {
       let g = this.query(child);
       if (!g) continue;
