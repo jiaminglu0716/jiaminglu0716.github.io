@@ -151,7 +151,6 @@ class TimeHandler extends Handler {
       this.timeUnitFormat(second)
     ].join(':')
   }
-  
   static dayGap(start, finish) {
     start = new Date(start);
     finish = new Date(finish);
@@ -640,10 +639,15 @@ models.EventRecordLinkManager = function() {
 models.EventLinkGroup = function(name) {
   this.name = name;
   this.values = new Collection();
+  this.extendGroupNames = new Collection();
   this.runtime = 0;
 
   this.add = function(value) {
     this.values.push(value);
+    return this;
+  }
+  this.extend = function(gname) {
+    this.extendGroupNames.push(gname);
     return this;
   }
 }
@@ -672,6 +676,17 @@ models.EventGroupManager = function() {
     group.add(eventRecordLink);
     return this;
   }
+  this.groupConcat = function(name, childs) {
+    let group = this.exists(name) ? this.query(name) : this.create(name);
+    console.log(name, childs, group)
+    for (let child of childs) {
+      let g = this.query(child);
+      if (!g) continue;
+      group.values = group.values.concat(g.values);
+      group.extend(child);
+    }
+    return this;
+  }
   this.setEventRecordLinkManager = function(eventRecordLinkManager) {
     this.eventRecordLinkManager = eventRecordLinkManager;
     return this;
@@ -686,6 +701,13 @@ models.EventGroupManager = function() {
   }
 }
 
+
+
+// ###########################
+//
+//  The Core of Record Parser 
+//
+// ###########################
 /**
  * Official Record 
  */
@@ -707,6 +729,7 @@ class DefaultTextLinesManager extends TextLinesManager {
       .addHandler(new OSOVDoubleSignFirstHandler('-', SignHandler.defaultParser, txt => {
         this.tempFrameStatistic = this.datetimeFrameStatisticManager.new().record(TimeHandler.defaultParser(txt.substring(2), this.date), null);
       }).include(['y', 'm', 'd']))
+      // The question is that this method only get one line content, so if i have  time to update, this method will be changed to obtain more lines.
       .addHandler(new SingleSignTextHandler('-', SignHandler.defaultParser, txt => TimeHandler.defaultParser(txt.substring(2), this.date), txt => {
         this.tempFrameStatistic.record(new Date(this.date), txt);
       }));
@@ -773,9 +796,22 @@ class RecordV3Core extends RecordV2Core {
      * v3 - [Group] event group statistic & timeline group statistic
      */
     this.textLinesManager.addHandler(new SingleSignHandler('g', SignHandler.defaultParser, txt => {
-      let [ gname, eid ] = txt.substring(2).split(' ');
-      let link = this.eventRecordLinkManager.query(eid);
-      if (link) this.eventGroupManager.group(gname, link);
+      let args = txt.substring(2).split(' ');
+      if (args < 2) return false;
+      let gname = args[0];
+
+      args.slice(1)
+        .map(eid => this.eventRecordLinkManager.query(eid))
+        .filter(val => val != false)
+        .forEach(link => this.eventGroupManager.group(gname, link));
+    }));
+    
+    // extend groups
+    this.textLinesManager.addHandler(new SingleSignHandler('ge', SignHandler.defaultParser, txt => {
+      let args = txt.substring(3).split(' ');
+      if (args.length < 2) return false;
+      let gname = args[0], gcs = args.slice(1).filter(val => val.length > 0);
+      return this.eventGroupManager.groupConcat(gname, gcs);
     }));
 
     this.__boots.push(() => {
@@ -827,20 +863,22 @@ class AppSummary extends Summary {
     }
 
     // Branch data
-    this.gtxt = '\n| 索引 | 事件组 | 组事件时长 |\n' +
-    '| --- | --- | --- |\n';
+    this.gtxt = '\n| 索引 | 事件组 | 组事件时长 | 相关事件组 |\n' +
+    '| --- | --- | --- | --- |\n';
     try {
       let eventGroupManager = core.eventGroupManager;
       let groups = eventGroupManager.values();
       let count = 1;
       for (let group of groups) {
+        let gs = group.extendGroupNames.join('、').trim();
         this.gtxt += '' +
           `| ${count++} ` +
           `| ${group.name} ` +
-          `| ${TimeHandler.hourFormat(group.runtime)} |\n`;
+          `| ${TimeHandler.hourFormat(group.runtime)} ` + 
+          `| ${gs.length > 0 ? gs : '-'} |\n`;
       }
     } catch {
-      this.gtxt += '| - | - | - |\n';
+      this.gtxt += '| - | - | - | - |\n';
     }
   }
   md() {
