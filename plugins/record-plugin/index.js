@@ -83,6 +83,68 @@ class Stack {
 
 class Collection extends Array {};
 
+/**
+ * Lock
+ */
+class Lock {};
+
+class SimpleLock extends Lock {
+  constructor() {
+    super();
+    this._lock = false;
+  }
+  lock() {
+    this._lock = true;
+    return this;
+  }
+  release() {
+    this._lock = false;
+    return this;
+  }
+  status() {
+    return this._lock
+  }
+};
+
+/**
+ * Temp Class
+ */
+//==========================================================================================//
+// Protect day error between months. such as: Feb. Feb has 29 days, and Jan has 31 days. 
+// If we define a day is 30 and we update the month. 
+// we can't be updated to Feb. so, the Date will help us update to Mar.
+// So, we need to define a dict to record the temp attrs and use date method to translate into Date, and this method can avoid auto fixed by Date Class.
+//==========================================================================================//
+class TempDate {
+  constructor() {
+    this.year   = 0;
+    this.month  = 0;
+    this.day    = 0;
+    this.hour   = 0;
+    this.minute = 0;
+    this.second = 0;
+  }
+  init() {
+    this.year   = 0;
+    this.month  = 0;
+    this.day    = 0;
+    this.hour   = 0;
+    this.minute = 0;
+    this.second = 0;
+  }
+  check() {
+    return (
+      this.year > 1000 && 
+      this.month <= 12 && this.month >= 1 && 
+      this.day <= 31 && this.day >= 0 && 
+      this.hour <= 24 && this.minute <= 60 && this.second <= 60
+    );
+  }
+  date() {
+    return new Date(`${this.year}/${this.month}/${this.day} ${this.hour}:${this.minute}:${this.second}`);
+  }
+}
+
 // Simple module
 const util = {
   cnext(init, cond, next, func) {
@@ -119,6 +181,12 @@ class TimeHandler extends Handler {
     date.setHours(hour);
     date.setMinutes(minute);
     return new Date(date);
+  }
+  static defaultTempParser(txt, date) {
+    let [ hour, minute ] = txt.split(':');
+    date.hour = hour;
+    date.minute = minute;
+    return date.date();
   }
   static timeUnitFormat(unit) {
     unit = Math.floor(unit);
@@ -316,6 +384,46 @@ class TextLinesManager extends Manager {
     return 1;
   }
 };
+
+class TextConfigManager extends Manager {
+  constructor(data) {
+    super();
+    this.lock = new SimpleLock();
+    this.data = data;
+    this._config = new Object();
+    this.last = 0;
+  }
+  run() {
+    for (let idx in this.data) {
+      let line = this.data[idx];
+      line = line.trim();
+      // Define the boundary of config text
+      if (line === '---') {
+        if (this.lock.status()) {
+          this.lock.release();
+          // Return txt index excluding config txt which has been handled.
+          this.last = Math.min(parseInt(idx) + 2, this.data.length);
+          break;
+        } else {
+          this.lock.lock();
+        }
+      // Set Config Dict ( Sample: core: v3 )
+      } else if (this.lock.status()) {
+        try {
+          let [key, value] = line.split(':');
+          this._config[key] = value.trim();
+        } catch {
+          console.log('[ERROR] Config has invalid attributes. -> ' + line);
+          continue;
+        }
+      }
+    }
+    return this;
+  }
+  export() {
+    return this._config;
+  }
+}
 
 // ###########################
 //
@@ -714,7 +822,7 @@ models.EventGroupManager = function() {
 class DefaultTextLinesManager extends TextLinesManager {
   constructor() {
     super();
-    this.date = new Date();
+    this.date = new TempDate();
     this.dayCount = 0;
     this.tempFrameStatistic = null;
     this.datetimeFrameStatisticManager = new models.DatetimeFrameStatisticManager();
@@ -723,15 +831,15 @@ class DefaultTextLinesManager extends TextLinesManager {
       /**
        * v1 - basic time record
        */
-      .addHandler(new SingleSignHandler('y', SignHandler.defaultParser, txt => this.date.setFullYear(txt.substring(2))))
-      .addHandler(new SingleSignHandler('m', SignHandler.defaultParser, txt => this.date.setMonth(int(txt.substring(2))-1, this.date.getDate())))
-      .addHandler(new SingleSignHandler('d', SignHandler.defaultParser, txt => { this.date.setDate(txt.substring(2)); this.dayCount++; }))
+      .addHandler(new SingleSignHandler('y', SignHandler.defaultParser, txt => this.date.year = txt.substring(2)))
+      .addHandler(new SingleSignHandler('m', SignHandler.defaultParser, txt => this.date.month = txt.substring(2)))
+      .addHandler(new SingleSignHandler('d', SignHandler.defaultParser, txt => { this.date.day = txt.substring(2); this.dayCount++; }))
       .addHandler(new OSOVDoubleSignFirstHandler('-', SignHandler.defaultParser, txt => {
-        this.tempFrameStatistic = this.datetimeFrameStatisticManager.new().record(TimeHandler.defaultParser(txt.substring(2), this.date), null);
+        this.tempFrameStatistic = this.datetimeFrameStatisticManager.new().record(TimeHandler.defaultTempParser(txt.substring(2), this.date), null);
       }).include(['y', 'm', 'd']))
       // The question is that this method only get one line content, so if i have  time to update, this method will be changed to obtain more lines.
-      .addHandler(new SingleSignTextHandler('-', SignHandler.defaultParser, txt => TimeHandler.defaultParser(txt.substring(2), this.date), txt => {
-        this.tempFrameStatistic.record(new Date(this.date), txt);
+      .addHandler(new SingleSignTextHandler('-', SignHandler.defaultParser, txt => TimeHandler.defaultTempParser(txt.substring(2), this.date), txt => {
+        this.tempFrameStatistic.record(this.date.date(), txt);
       }));
   }
 }
@@ -883,6 +991,45 @@ class AppSummary extends Summary {
   }
   md() {
     return this.txt + '\n' + this.ntxt + '\n' + this.gtxt;
+  }
+}
+
+/**
+ * App main 
+ */ 
+class App {
+  constructor(lines, version='v3') {
+    this.data = lines;
+    this.__core = this.core(version);
+  }
+  core(version='v3') {
+    let core = null;
+
+    let configManager = new TextConfigManager(this.data).run();
+
+    let config = configManager.export();
+    let data = this.data.slice(configManager.last, this.data.length);
+    // console.log(data);
+    
+    version = config.core || config.version || config.v || version;
+    // console.log(version);
+
+    switch (version) {
+      case 'v1': core = new RecordV1Core(); break;
+      case 'v2': core = new RecordV2Core(); break;
+      case 'v3': core = new RecordV3Core(); break;
+      default: core = new RecordV3Core();
+    }
+    
+    return core.load(data).boot();
+  }
+  run() {
+    return new AppSummary(this.__core);
+  }
+  test() {
+     let core = new RecordV3Core().load(this.data).boot();
+     let eventGroupManager = core.eventGroupManager;
+    // console.log(eventGroupManager.groups)
   }
 }
 
