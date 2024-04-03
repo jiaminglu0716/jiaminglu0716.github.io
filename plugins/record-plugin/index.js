@@ -885,7 +885,7 @@ class RecordV2Core extends RecordV1Core {
      */
     this.textLinesManager.addHandler(new SingleSignHandler('c', SignHandler.defaultParser, txt => {
       let [ prev, cur, title, aft ] = EventHandler.defaultParser(txt.substring(2));
-      this.eventRecordLinkManager.event(prev, new models.EventRecord(cur, title, new Date(this.textLinesManager.date)), aft.indexOf('s') > -1);
+      this.eventRecordLinkManager.event(prev, new models.EventRecord(cur, title, this.textLinesManager.date.date()), aft.indexOf('s') > -1);
     }));
     this.__boots.push(() => {
       this.eventRecordLinkManager.setDatetimeFrameStatisticManager(this.datetimeFrameStatisticManager);
